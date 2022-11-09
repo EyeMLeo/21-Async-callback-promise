@@ -1,1 +1,16 @@
 @import 'reset.css';
+
+
+
+#cards,
+#cards2,
+#phones{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem
+}
+
+
+#cards2 .card{
+    background-color: sandybrown;
+}
