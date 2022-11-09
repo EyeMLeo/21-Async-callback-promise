@@ -1,5 +1,5 @@
-'use strict';
-console.log('fetch.js');
+"use strict";
+console.log("fetch.js");
 
 // norim parsisiusti duomenis is interneto ir su jais sugeneruoti postus
 // fetch(url)
@@ -26,14 +26,21 @@ console.log('fetch.js');
 // parsisiusti 10 useriu is https://jsonplaceholder.typicode.com/users
 // iskonsologinti
 
-const url = 'https://jsonplaceholder.typicode.com/users';
+const url = "https://jsonplaceholder.typicode.com/users";
+let postsEl = document.getElementById("posts");
 
 fetch(url)
   .then((response) => response.json()) // .json() => JSON.parse()
   .then((dataInJsFormat) => {
     // gavau duomenis
-    console.log('dataInJsFormat ===', dataInJsFormat);
+    console.log("dataInJsFormat ===", dataInJsFormat);
+    dataInJsFormat.forEach((element) => {
+      postsEl.insertAdjacentHTML(
+        "afterbegin",
+        `<li>${element.name} ${element.phone}</li>`
+      );
+    });
   })
-  .catch((err) => console.warn('klaida gaunant users', err));
+  .catch((err) => console.warn("klaida gaunant users", err));
 
 // is gautu duomenu atvaizduoti sarasa su vardais ir tel numeriais
